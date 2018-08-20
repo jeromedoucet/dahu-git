@@ -1,0 +1,15 @@
+[prune]
+  go-tests = true
+  unused-packages = true
+
+[[constraint]]
+  name = "gopkg.in/src-d/go-git.v4"
+  version = "4.6.0"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/jeromedoucet/dahu-tests"
+
+[[override]]
+  branch = "master"
+  name = "github.com/docker/distribution"
