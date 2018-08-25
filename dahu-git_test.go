@@ -11,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-	"time"
 
 	"github.com/jeromedoucet/dahu-git/types"
 	"github.com/jeromedoucet/dahu-tests/container"
@@ -25,7 +24,6 @@ var tmpDir string
 func TestMain(m *testing.M) {
 	resetTmpDir()
 	gogsId := container.StartGogs(DockerApiVersion)
-	time.Sleep(10000 * time.Millisecond)
 	retCode := m.Run()
 	container.StopContainer(gogsId, DockerApiVersion)
 	os.RemoveAll(tmpDir)

@@ -100,14 +100,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f8aa4d47f8cc790149dc40aef7d5b52a7bc171becd562ef18e6a951e1357be2d"
+  digest = "1:00b850dbe54b51aaa97ba9f2c84ac23f28de20d1f4c778adacee46344198dfac"
   name = "github.com/jeromedoucet/dahu-tests"
   packages = [
     "container",
     "ssh",
   ]
   pruneopts = "UT"
-  revision = "e98ce337d1c8e6395378617a8990791bb0d6fae3"
+  revision = "bed07c9bb243420d9faaf7be651fc6df64dfbb8f"
 
 [[projects]]
   digest = "1:19cbd171739c98ab0c6532f340f217ee6aa5c3623e58b7c54d2c3cbff80a3114"
@@ -329,6 +329,7 @@
     "github.com/jeromedoucet/dahu-tests/ssh",
     "golang.org/x/crypto/ssh",
     "gopkg.in/src-d/go-git.v4",
+    "gopkg.in/src-d/go-git.v4/plumbing",
     "gopkg.in/src-d/go-git.v4/plumbing/transport",
     "gopkg.in/src-d/go-git.v4/plumbing/transport/http",
     "gopkg.in/src-d/go-git.v4/plumbing/transport/ssh",
