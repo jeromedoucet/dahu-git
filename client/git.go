@@ -48,6 +48,7 @@ func newGitError(msg string, errType GitErrorType) GitError {
 func CloneWithSsh(ctx types.CloneContext, auth types.SshAuth) GitError {
 	gitAuth, sshError := ssh.NewPublicKeys("git", []byte(auth.Key), auth.KeyPassword)
 	if sshError != nil {
+		log.Printf("Git >> issue when reading ssh key %s", sshError.Error())
 		return newGitError(sshError.Error(), SshKeyReadingError)
 	}
 	// see https://github.com/src-d/go-git/issues/454
