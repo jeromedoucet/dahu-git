@@ -53,6 +53,13 @@ func (h cloneHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+type statusHandler struct {
+}
+
+func (h statusHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+}
+
 func main() {
 
 	port := flag.String("port", "80", "the port dahu-git will listen on")
@@ -62,10 +69,11 @@ func main() {
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt)
 
-	handler := new(cloneHandler)
-	handler.directory = *directory
+	clHandler := new(cloneHandler)
+	clHandler.directory = *directory
 
-	http.Handle("/", handler)
+	http.Handle("/clone", clHandler)
+	http.Handle("/status", new(statusHandler))
 
 	go func() {
 		log.Printf("INFO >> Listening on http://0.0.0.0:%s", *port)

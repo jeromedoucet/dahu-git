@@ -41,6 +41,25 @@ func resetTmpDir() {
 	}
 }
 
+func TestStatus(t *testing.T) {
+	// given
+	handler := new(statusHandler)
+	s := httptest.NewServer(handler)
+	defer s.Close()
+
+	// when
+	resp, err := http.Get(fmt.Sprintf("%s", s.URL))
+
+	// then
+	if err != nil {
+		t.Errorf("Expect to have no error, but got %s", err.Error())
+	}
+	if resp.StatusCode != 200 {
+		t.Errorf("Expect 200 return code when testing a health check endpoint "+
+			"Got %d", resp.StatusCode)
+	}
+}
+
 func TestCloneProtectedKey(t *testing.T) {
 	// given
 	// server setup
